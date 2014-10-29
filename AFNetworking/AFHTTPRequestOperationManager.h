@@ -160,7 +160,13 @@
 /**
  The dispatch group for the `completionBlock` of request operations. If `NULL` (default), a private dispatch group is used.
  */
+#if OS_OBJECT_USE_OBJC
 @property (nonatomic, strong) dispatch_group_t completionGroup;
+#else
+@property (nonatomic, assign) dispatch_group_t completionGroup;
+#endif
+
+
 
 ///---------------------------------------------
 /// @name Creating and Initializing HTTP Clients

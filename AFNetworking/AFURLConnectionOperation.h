@@ -198,7 +198,13 @@
 /**
  The dispatch group for `completionBlock`. If `NULL` (default), a private dispatch group is used.
  */
+//@property (nonatomic, strong) dispatch_group_t completionGroup;
+#if OS_OBJECT_USE_OBJC
 @property (nonatomic, strong) dispatch_group_t completionGroup;
+#else
+@property (nonatomic, assign) dispatch_group_t completionGroup;
+#endif
+
 
 ///---------------------------------------------
 /// @name Managing Request Operation Information
